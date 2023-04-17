@@ -1,0 +1,1 @@
+QR core project for cafe shop based on .NET core and Reactjs
