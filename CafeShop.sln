@@ -3,7 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CafeShop.API", "CafeShop.API\CafeShop.API.csproj", "{FF6DF301-8203-4DEC-8D5D-C72C02ECB81E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CafeShop.Database", "CafeShop.Database\CafeShop.Database.csproj", "{DBDC0F44-4B00-4926-9ACD-C5DC0BF3FACC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CafeShop.Common", "CafeShop.Common\CafeShop.Common.csproj", "{0CC6F076-66D2-44CD-B932-B65682FD008D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CafeShop.Ultilities", "CafeShop.Ultilities\CafeShop.Ultilities.csproj", "{C0F32AC1-1B7E-462F-A1F6-2F5B3F379C17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CafeShop.Handlers", "CafeShop.Handlers\CafeShop.Handlers.csproj", "{CAAD0D9B-5FB6-4357-93E8-CCD88E43F31B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CafeShop.CommonServices", "CafeShop.CommonServices\CafeShop.CommonServices.csproj", "{5E852E2D-5516-430B-9330-901A3BBEA1DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CafeShop.Api", "CafeShop.Api\CafeShop.Api.csproj", "{13BE252A-33E9-40DB-B4FF-6013491FD188}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +21,30 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FF6DF301-8203-4DEC-8D5D-C72C02ECB81E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF6DF301-8203-4DEC-8D5D-C72C02ECB81E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FF6DF301-8203-4DEC-8D5D-C72C02ECB81E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FF6DF301-8203-4DEC-8D5D-C72C02ECB81E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBDC0F44-4B00-4926-9ACD-C5DC0BF3FACC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBDC0F44-4B00-4926-9ACD-C5DC0BF3FACC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBDC0F44-4B00-4926-9ACD-C5DC0BF3FACC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBDC0F44-4B00-4926-9ACD-C5DC0BF3FACC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CC6F076-66D2-44CD-B932-B65682FD008D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CC6F076-66D2-44CD-B932-B65682FD008D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CC6F076-66D2-44CD-B932-B65682FD008D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CC6F076-66D2-44CD-B932-B65682FD008D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0F32AC1-1B7E-462F-A1F6-2F5B3F379C17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0F32AC1-1B7E-462F-A1F6-2F5B3F379C17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0F32AC1-1B7E-462F-A1F6-2F5B3F379C17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0F32AC1-1B7E-462F-A1F6-2F5B3F379C17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAAD0D9B-5FB6-4357-93E8-CCD88E43F31B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAAD0D9B-5FB6-4357-93E8-CCD88E43F31B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAAD0D9B-5FB6-4357-93E8-CCD88E43F31B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAAD0D9B-5FB6-4357-93E8-CCD88E43F31B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E852E2D-5516-430B-9330-901A3BBEA1DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E852E2D-5516-430B-9330-901A3BBEA1DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E852E2D-5516-430B-9330-901A3BBEA1DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E852E2D-5516-430B-9330-901A3BBEA1DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13BE252A-33E9-40DB-B4FF-6013491FD188}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13BE252A-33E9-40DB-B4FF-6013491FD188}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13BE252A-33E9-40DB-B4FF-6013491FD188}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13BE252A-33E9-40DB-B4FF-6013491FD188}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
