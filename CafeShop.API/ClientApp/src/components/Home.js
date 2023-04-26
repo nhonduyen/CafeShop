@@ -1,26 +1,86 @@
 import React, { Component } from 'react';
+import { Header } from './Header';
+import { SideMenu } from './SideMenu'
+import { NavMenu } from './NavMenu';
+import { MenuItems } from './MenuItems';
+
+import './site.css'
 
 export class Home extends Component {
   static displayName = Home.name;
 
-  render () {
+  constructor(props) {
+    super(props);
+    this.state = {
+      categories: [],
+      selectedCategoryId: null,
+      isShowSideMenu: false,
+      itemList: []
+    };
+
+    this.generateItems = this.generateItems.bind(this);
+    this.generateCategories = this.generateCategories.bind(this);
+    this.updateIsShowSideMenu = this.updateIsShowSideMenu.bind(this);
+    this.updateSelectedCategoryId = this.updateSelectedCategoryId.bind(this);
+  }
+
+  componentDidMount() {
+    this.generateItems()
+    this.generateCategories()
+  }
+
+  generateItems() {
+    let items = []
+    for (let i = 65; i < 90; i++) {
+      let price = Math.floor((Math.random() * 200000) + 1000);
+
+      let item = {
+        title: `Món ăn ${String.fromCharCode(i)}`,
+        desc: `Mô tả món ăn ${String.fromCharCode(i)}`,
+        price: price,
+        url: `./img/BK4PV${String.fromCharCode(i)}.jpg`,
+        cateId: Math.floor((Math.random() * 15) + 1),
+        id: i,
+        priceWithComma: this.numberWithCommas(price)
+      };
+      items.push(item);
+    }
+    this.setState({ itemList: items })
+  }
+
+  numberWithCommas(x) {
+    if (isNaN(x))
+      return -1;
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+  }
+
+  generateCategories() {
+    let items = []
+    for (let i = 65; i < 90; i++) {
+      let item = {
+        name: `Menu ${String.fromCharCode(i)}`,
+        cateId: Math.floor((Math.random() * 15) + 1)
+      };
+      items.push(item);
+    }
+    this.setState({ categories: items })
+  }
+  updateIsShowSideMenu(isShow) {
+    this.setState({isShowSideMenu: isShow})
+  }
+
+  updateSelectedCategoryId(id) {
+    this.setState({ selectedCategoryId: id })
+  }
+
+  render() {
     return (
-      <div>
-        <h1>Hello, world!</h1>
-        <p>Welcome to your new single-page application, built with:</p>
-        <ul>
-          <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>
-          <li><a href='https://facebook.github.io/react/'>React</a> for client-side code</li>
-          <li><a href='http://getbootstrap.com/'>Bootstrap</a> for layout and styling</li>
-        </ul>
-        <p>To help you get started, we have also set up:</p>
-        <ul>
-          <li><strong>Client-side navigation</strong>. For example, click <em>Counter</em> then <em>Back</em> to return here.</li>
-          <li><strong>Development server integration</strong>. In development mode, the development server from <code>create-react-app</code> runs in the background automatically, so your client-side resources are dynamically built on demand and the page refreshes when you modify any file.</li>
-          <li><strong>Efficient production builds</strong>. In production mode, development-time features are disabled, and your <code>dotnet publish</code> configuration produces minified, efficiently bundled JavaScript files.</li>
-        </ul>
-        <p>The <code>ClientApp</code> subdirectory is a standard React application based on the <code>create-react-app</code> template. If you open a command prompt in that directory, you can run <code>npm</code> commands such as <code>npm test</code> or <code>npm install</code>.</p>
-      </div>
+      <>
+        <Header updateIsShowSideMenu={this.updateIsShowSideMenu} />
+        <NavMenu categories={this.state.categories} selectedCategoryId={this.state.selectedCategoryId} />
+        <SideMenu isShowSideMenu={this.state.isShowSideMenu} categories={this.state.categories} selectedCategoryId={this.state.selectedCategoryId} />
+        <MenuItems items={this.state.itemList}/>
+      </>
     );
   }
 }
