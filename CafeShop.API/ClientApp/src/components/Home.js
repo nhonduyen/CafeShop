@@ -3,6 +3,7 @@ import { Header } from './Header';
 import { SideMenu } from './SideMenu'
 import { NavMenu } from './NavMenu';
 import { MenuItems } from './MenuItems';
+import { ItemDetails } from './ItemDetails';
 
 import './site.css'
 
@@ -15,12 +16,15 @@ export class Home extends Component {
       categories: [],
       selectedCategoryId: null,
       isShowSideMenu: false,
-      itemList: []
+      itemList: [],
+      selectedItem: null,
+      isShowItemDetails: false
     };
 
     this.generateItems = this.generateItems.bind(this);
     this.generateCategories = this.generateCategories.bind(this);
     this.updateIsShowSideMenu = this.updateIsShowSideMenu.bind(this);
+    this.updateIsShowItemDetails = this.updateIsShowItemDetails.bind(this);
     this.updateSelectedCategoryId = this.updateSelectedCategoryId.bind(this);
   }
 
@@ -73,6 +77,10 @@ export class Home extends Component {
     this.setState({ selectedCategoryId: id })
   }
 
+  updateIsShowItemDetails (isShow) {
+    this.setState({ isShowItemDetails: isShow })
+  }
+
   render() {
     return (
       <>
@@ -80,6 +88,7 @@ export class Home extends Component {
         <NavMenu categories={this.state.categories} selectedCategoryId={this.state.selectedCategoryId} />
         <SideMenu isShowSideMenu={this.state.isShowSideMenu} categories={this.state.categories} selectedCategoryId={this.state.selectedCategoryId} />
         <MenuItems items={this.state.itemList}/>
+        <ItemDetails item={this.state.selectedItem} updateIsShowItemDetails={this.updateIsShowItemDetails} />
       </>
     );
   }

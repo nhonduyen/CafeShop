@@ -4,21 +4,14 @@ import { faAdd } from '@fortawesome/free-solid-svg-icons'
 
 export class Item extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            menuItem: null
-        }
-    }
-
     render() {
         return (
-            <div className="menu-item" v-for="item in items">
-                <a className="thumbnail" href="#">
+            <div className="menu-item">
+                <a className="thumbnail" href="#" onClick={() => this.props.updateIsShowItemDetails(true)}>
                     <img src={this.props.menuItem?.url} alt={this.props.menuItem?.title} loading='lazy' />
                 </a>
                 <div className="info">
-                    <a className="title" href="#">{this.props.menuItem?.title}</a>
+                    <a className="title" href="#" onClick={() => this.props.updateIsShowItemDetails(true)}>{this.props.menuItem?.title}</a>
                     <div className="desc">{this.props.menuItem?.desc}</div>
                     <div className="price">
                         <div className="price-color">

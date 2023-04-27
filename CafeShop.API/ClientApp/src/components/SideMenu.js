@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClose } from '@fortawesome/free-solid-svg-icons'
+import { Modal, ModalHeader, ModalBody, ModalFooter, CardBody } from 'reactstrap';
 
 export class SideMenu extends Component {
 
@@ -31,7 +32,7 @@ export class SideMenu extends Component {
                         <div className="list-group side-group">
                             {
                                 this.props.categories.map(cate => (
-                                    <a key={cate.Id} className='list-group-item side-group-item'>{cate.Name}</a>
+                                    <a key={cate.id} className='list-group-item side-group-item'>{cate.name}</a>
                                 ))
                             }
                         </div>
