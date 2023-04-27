@@ -9,7 +9,7 @@ export class MenuItems extends Component {
                 <div className="row" id="itemlist">
                     {
                         this.props.items.map(item => (
-                            <Item menuItem={item} />
+                            <Item menuItem={item} key={item.id} />
                         ))
                     }
                 </div>

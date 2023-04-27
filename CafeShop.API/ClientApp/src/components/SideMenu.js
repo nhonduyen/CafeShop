@@ -32,7 +32,7 @@ export class SideMenu extends Component {
                         <div className="list-group side-group">
                             {
                                 this.props.categories.map(cate => (
-                                    <a key={cate.id} className='list-group-item side-group-item'>{cate.name}</a>
+                                    <a href='#' key={cate.cateId} className='list-group-item side-group-item'>{cate.name}</a>
                                 ))
                             }
                         </div>

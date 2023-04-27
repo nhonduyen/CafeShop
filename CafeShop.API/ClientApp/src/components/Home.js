@@ -63,7 +63,7 @@ export class Home extends Component {
     for (let i = 65; i < 90; i++) {
       let item = {
         name: `Menu ${String.fromCharCode(i)}`,
-        cateId: Math.floor((Math.random() * 15) + 1)
+        cateId: i
       };
       items.push(item);
     }
@@ -87,8 +87,7 @@ export class Home extends Component {
         <Header updateIsShowSideMenu={this.updateIsShowSideMenu} />
         <NavMenu categories={this.state.categories} selectedCategoryId={this.state.selectedCategoryId} />
         <SideMenu isShowSideMenu={this.state.isShowSideMenu} categories={this.state.categories} selectedCategoryId={this.state.selectedCategoryId} />
-        <MenuItems items={this.state.itemList}/>
-        <ItemDetails item={this.state.selectedItem} updateIsShowItemDetails={this.updateIsShowItemDetails} />
+        <MenuItems items={this.state.itemList} updateIsShowItemDetails={this.updateIsShowItemDetails}/>
       </>
     );
   }

@@ -14,7 +14,7 @@ export class NavMenu extends Component {
                 <li id='all'><a className='list-group-item side-group-item'>Tất cả</a></li>
                 {
                   this.props.categories?.map(cate => (
-                    <li key={cate.Id}><a className='list-group-item side-group-item'>{cate.name}</a></li>
+                    <li key={cate.cateId}><a className='list-group-item side-group-item'>{cate.name}</a></li>
                   ))
                 }
               </ul>
