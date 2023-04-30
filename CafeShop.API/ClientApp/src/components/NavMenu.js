@@ -1,28 +1,26 @@
-import React, { Component } from 'react';
+import React, { useContext } from 'react'
+import { CategoriesContext } from './Home'
 
-export class NavMenu extends Component {
-  static displayName = NavMenu.name;
+export function NavMenu() {
+  const { categoriesList } = useContext(CategoriesContext)
 
-
-  render() {
-    return (
-      <nav className="container-fluid sticky-top" id="menu1">
-        <section className="container" id="horizon-menu1">
-          <div className="row" id="category-container">
-            <div className="scrollmenu col" data-simplebar>
-              <ul>
-                <li id='all'><a className='list-group-item side-group-item'>Tất cả</a></li>
-                {
-                  this.props.categories?.map(cate => (
-                    <li key={cate.Id}><a className='list-group-item side-group-item'>{cate.name}</a></li>
-                  ))
-                }
-              </ul>
-            </div>
+  return (
+    <nav className="container-fluid sticky-top" id="menu1">
+      <section className="container" id="horizon-menu1">
+        <div className="row" id="category-container">
+          <div className="scrollmenu col" data-simplebar>
+            <ul>
+              <li id='all'><a className='list-group-item side-group-item'>Tất cả</a></li>
+              {
+                categoriesList.map(cate => (
+                  <li key={cate.cateId}><a className='list-group-item side-group-item'>{cate.name}</a></li>
+                ))
+              }
+            </ul>
           </div>
+        </div>
 
-        </section>
-      </nav>
-    );
-  }
+      </section>
+    </nav>
+  )
 }

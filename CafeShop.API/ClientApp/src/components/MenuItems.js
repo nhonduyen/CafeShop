@@ -1,19 +1,20 @@
-import React, { Component } from 'react';
+import React, { useContext } from 'react';
 import { Item } from './Item';
+import { ItemsContext } from './Home'
 
-export class MenuItems extends Component {
+export function MenuItems() {
 
-    render() {
-        return (
-            <div className="container">
-                <div className="row" id="itemlist">
-                    {
-                        this.props.items.map(item => (
-                            <Item menuItem={item} />
-                        ))
-                    }
-                </div>
+    const { itemList } = useContext(ItemsContext)
+
+    return (
+        <div className="container">
+            <div className="row" id="itemlist">
+                {
+                    itemList.map(item => (
+                        <Item menuItem={item} key={Math.random() * 10000000} />
+                    ))
+                }
             </div>
-        );
-    }
+        </div>
+    );
 }
