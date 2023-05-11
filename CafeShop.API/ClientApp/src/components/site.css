@@ -1,0 +1,355 @@
+body {
+    background-color: #f5f5f5;
+    font-family: 'Roboto', sans-serif;
+}
+
+#header {
+    background-color: #a16e39;
+    height: 45px;
+    color: #ffffff;
+}
+
+.page-header {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700px;
+    line-height: 45px;
+}
+
+#icon {
+    color: #ffffff;
+    font-size: 26px;
+    top: 10px;
+    position: absolute;
+}
+
+#menu {
+    height: 50px;
+    background-color: #ffffff;
+    border-bottom: 1px solid rbga(255, 255, 255, 0.5);
+    text-align: center;
+    left: 0;
+    top: 45px;
+    margin: 0 auto;
+}
+
+#bar {
+    color: #fff;
+    font-size: 26px;
+    position: absolute;
+}
+
+div.scrollmenu {
+    white-space: nowrap;
+}
+
+#menu1 ul li .active {
+    background-color: #a16e39;
+    color: #ffffff;
+    border-radius: 15px;
+}
+
+input[type=search] {
+    width: 30px;
+    height: 29px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    font-family: Roboto, FontAwesome;
+    font-size: 15px;
+    border-radius: 15px;
+    margin: 10px auto auto 5px;
+    border: 1px solid #efefef;
+}
+
+#btn-search {
+    width: 20px;
+    height: 20px;
+    margin: 5px auto auto 5px;
+    font-size: 28px;
+    background-size: contain;
+    cursor: pointer;
+    color: #a16e39;
+}
+
+#search-close {
+    width: 20px;
+    height: 20px;
+    margin: 10px auto auto 5px;
+    font-size: 28px;
+    color: red;
+    background-size: contain;
+    cursor: pointer;
+}
+
+input[type=search]:focus {
+    width: 60%;
+}
+
+#foodlist {
+    position: relative;
+    margin-bottom: 50px;
+}
+
+#menu1 {
+    height: 50px;
+    background-color: #ffffff;
+    border-bottom: 1px solid rbga(255, 255, 255, 0.5);
+    text-align: center;
+    left: 0;
+    margin: 0 auto;
+    z-index: 100;
+    box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.06);
+    margin-bottom: 20px;
+}
+
+#menu1 ul {
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: left;
+    position: relative;
+}
+
+#menu1 ul li {
+    padding: 8px 0;
+    display: inline-block;
+    height: 45px;
+    text-transform: uppercase;
+}
+
+#menu1 ul li a {
+    line-height: 30px;
+    height: 30px;
+    padding: 6px 20px;
+    border-radius: 15px;
+    text-decoration: none;
+    color: #000;
+}
+
+#sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1050;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+#sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+#sidebar a:hover {
+    color: #f1f1f1;
+}
+
+#sidebar #close {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.menu-item {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    background-color: #fff;
+    width: calc(50% - 5px);
+}
+
+.menu-item:nth-child(2n+1) {
+    margin-right: 5px;
+}
+
+.menu-item:nth-child(2n+2) {
+    margin-left: 5px;
+}
+
+.info {
+    display: block;
+    float: left;
+    width: calc(100% - 80px);
+    margin: 0;
+    padding: 8px 10px 10px 10px;
+    line-height: 1;
+}
+
+.thumbnail {
+    text-decoration: none;
+    display: block;
+    float: left;
+    width: 80px;
+    height: 90px;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+.thumbnail img {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: calc(100% - 10px);
+    height: calc(90px - 20px);
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.info .title {
+    width: 100%;
+    padding-bottom: 2px;
+    overflow: hidden;
+    white-space: normal;
+    line-height: 1.3;
+    text-decoration: none;
+    color: #000;
+    font-size: 15px;
+    text-transform: uppercase;
+    margin: 0 0 4px 0;
+    font-weight: 700;
+    display: inline-block;
+    text-overflow: ellipsis;
+}
+
+.info .desc {
+    display: inline-block;
+    max-width: 100%;
+    white-space: nowrap;
+    margin: 0 0 4px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+    text-transform: uppercase;
+    height: 17px;
+    line-height: 1.3;
+}
+
+.info .price {
+    display: block;
+    width: 100%;
+    position: relative;
+    height: 24px;
+    line-height: 24px;
+    margin-top: 2px;
+}
+
+.price-color {
+    color: #A16E39;
+}
+
+#mdImg {
+    height: 50vh;
+}
+
+.no-border {
+    border: 0;
+    padding: 0 1rem;
+}
+
+
+/* left menu */
+
+#side-menu .modal-content {
+    border-radius: 0;
+    height: 100vh;
+    border: none;
+}
+
+#side-menu .modal-body {
+    width: 100%;
+}
+
+.modal-menu {
+    padding-left: 0;
+}
+
+.fade-left {
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: all 0.25s linear;
+}
+
+.fade-left.in {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.modal-menu .modal-dialog {
+    margin: 0 auto 0 0;
+    width: auto;
+    max-width: 100%;
+    display: block;
+    float: left;
+    min-width: 260px;
+}
+
+.side-group {
+    width: 100%;
+    padding-left: 0;
+}
+
+.side-group-item {
+    border: none;
+    border-radius: 0;
+    text-transform: uppercase;
+    color: #000;
+    padding: 1rem 1rem;
+    width: 100%;
+}
+
+.side-group-item:first-child {
+    border-radius: 0;
+}
+
+.side-group-item:hover {
+    text-decoration: none;
+    color: #000;
+    background-color: #F5F5F5;
+}
+
+.side-group .active {
+    background-color: #A16E39 !important;
+    color: #fff;
+}
+
+.pb-5 {
+    padding-bottom: 0 !important;
+}
+
+@media screen and (max-width: 710px) {
+    .menu-item {
+        width: 100%;
+        margin: 0 0 10px 0;
+    }
+    .menu-item:nth-child(2n+1) {
+        margin-right: 0;
+    }
+    .menu-item:nth-child(2n+2) {
+        margin-left: 0;
+    }
+}
+
+
+/* hide input number spinner */
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
