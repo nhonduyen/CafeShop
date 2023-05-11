@@ -5,6 +5,7 @@ using CafeShop.Middlewares;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
@@ -86,6 +87,11 @@ app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseEndpoints(endpoints => {
     endpoints.MapControllers();
+});
+
+app.UseStaticFiles(new StaticFileOptions {
+    FileProvider = new PhysicalFileProvider(Path.Combine(builder.Environment.ContentRootPath, "images")),
+    RequestPath = "/images",
 });
 
 app.Run();

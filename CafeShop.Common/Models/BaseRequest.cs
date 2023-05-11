@@ -1,9 +1,14 @@
 ﻿using MediatR;
+using Newtonsoft.Json;
 
 namespace CafeShop.Common.Models {
     public abstract class BaseRequest {
-        public string MerchantId { get; set; } = string.Empty;
-        public string UserId { get; set; } = string.Empty;
+
+        [JsonIgnore]
+        public Guid MerchantId { get; set; }
+
+        [JsonIgnore]
+        public Guid UserId { get; set; }
     }
 
     public abstract class BaseReq : BaseRequest, IRequest {

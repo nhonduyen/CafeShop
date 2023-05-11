@@ -283,11 +283,6 @@ namespace CafeShop.Database.Migrations
                     b.Property<int>("Price")
                         .HasColumnType("integer");
 
-                    b.Property<string>("ProductCode")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
-
                     b.Property<Guid>("ProductId")
                         .HasColumnType("uuid");
 
@@ -328,10 +323,8 @@ namespace CafeShop.Database.Migrations
                     b.Property<Guid>("CategoryId")
                         .HasColumnType("uuid");
 
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("boolean");
 
                     b.Property<bool>("IsDelete")
                         .HasColumnType("boolean");
@@ -358,9 +351,6 @@ namespace CafeShop.Database.Migrations
                     b.HasIndex("CategoryId");
 
                     b.HasIndex("MerchantId");
-
-                    b.HasIndex("MerchantId", "Code")
-                        .IsUnique();
 
                     b.HasIndex("MerchantId", "IsDelete");
 

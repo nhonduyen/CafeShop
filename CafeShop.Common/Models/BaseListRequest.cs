@@ -5,8 +5,8 @@ namespace CafeShop.Common.Models {
         public int PageIndex { get; set; }
         public int PageSize { get; set; }
         public bool IsCount { get; set; }
-        public string? SearchText { get; set; }
-        public string? FirstItemId { get; set; }
+        public bool IsAll { get; set; }
+        public string SearchText { get; set; } = string.Empty;
 
         public int Skip => this.PageIndex * this.PageSize;
         public int Take => this.PageSize;

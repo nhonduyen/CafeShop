@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CafeShop.Database", "CafeShop.Database\CafeShop.Database.csproj", "{DBDC0F44-4B00-4926-9ACD-C5DC0BF3FACC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CafeShop.Database", "CafeShop.Database\CafeShop.Database.csproj", "{DBDC0F44-4B00-4926-9ACD-C5DC0BF3FACC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CafeShop.Common", "CafeShop.Common\CafeShop.Common.csproj", "{0CC6F076-66D2-44CD-B932-B65682FD008D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CafeShop.Common", "CafeShop.Common\CafeShop.Common.csproj", "{0CC6F076-66D2-44CD-B932-B65682FD008D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CafeShop.Ultilities", "CafeShop.Ultilities\CafeShop.Ultilities.csproj", "{C0F32AC1-1B7E-462F-A1F6-2F5B3F379C17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CafeShop.Ultilities", "CafeShop.Ultilities\CafeShop.Ultilities.csproj", "{C0F32AC1-1B7E-462F-A1F6-2F5B3F379C17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CafeShop.Handlers", "CafeShop.Handlers\CafeShop.Handlers.csproj", "{CAAD0D9B-5FB6-4357-93E8-CCD88E43F31B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CafeShop.Handlers", "CafeShop.Handlers\CafeShop.Handlers.csproj", "{CAAD0D9B-5FB6-4357-93E8-CCD88E43F31B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CafeShop.CommonServices", "CafeShop.CommonServices\CafeShop.CommonServices.csproj", "{5E852E2D-5516-430B-9330-901A3BBEA1DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CafeShop.CommonServices", "CafeShop.CommonServices\CafeShop.CommonServices.csproj", "{5E852E2D-5516-430B-9330-901A3BBEA1DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CafeShop.Api", "CafeShop.Api\CafeShop.Api.csproj", "{13BE252A-33E9-40DB-B4FF-6013491FD188}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CafeShop.Api", "CafeShop.Api\CafeShop.Api.csproj", "{13BE252A-33E9-40DB-B4FF-6013491FD188}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CafeShop.Models", "CafeShop.Models\CafeShop.Models.csproj", "{2616086F-0CC7-4465-B947-0D596F8E9EE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{13BE252A-33E9-40DB-B4FF-6013491FD188}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13BE252A-33E9-40DB-B4FF-6013491FD188}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13BE252A-33E9-40DB-B4FF-6013491FD188}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2616086F-0CC7-4465-B947-0D596F8E9EE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2616086F-0CC7-4465-B947-0D596F8E9EE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2616086F-0CC7-4465-B947-0D596F8E9EE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2616086F-0CC7-4465-B947-0D596F8E9EE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

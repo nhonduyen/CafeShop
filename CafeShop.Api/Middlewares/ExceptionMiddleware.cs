@@ -14,9 +14,9 @@ namespace CafeShop.Middlewares {
             try {
                 await this.next(context);
             } catch (ManagedException ex) {
-                await HandleException(context, (int)HttpStatusCode.OK, ex);
-            } catch (Exception ex) {
                 await HandleException(context, (int)HttpStatusCode.BadRequest, ex);
+            } catch (Exception ex) {
+                await HandleException(context, (int)HttpStatusCode.InternalServerError, ex);
             }
         }
 

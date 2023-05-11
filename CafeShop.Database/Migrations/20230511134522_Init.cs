@@ -115,9 +115,9 @@ namespace CafeShop.Database.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    Code = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
                     Name = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false),
                     Price = table.Column<int>(type: "integer", nullable: false),
+                    IsActive = table.Column<bool>(type: "boolean", nullable: false),
                     CategoryId = table.Column<Guid>(type: "uuid", nullable: false),
                     ModifiedBy = table.Column<Guid>(type: "uuid", nullable: false),
                     ModifiedDate = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
@@ -176,7 +176,6 @@ namespace CafeShop.Database.Migrations
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     OrderId = table.Column<Guid>(type: "uuid", nullable: false),
                     ProductId = table.Column<Guid>(type: "uuid", nullable: false),
-                    ProductCode = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
                     ProductName = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false),
                     Price = table.Column<int>(type: "integer", nullable: false),
                     Quantity = table.Column<int>(type: "integer", nullable: false),
@@ -345,13 +344,6 @@ namespace CafeShop.Database.Migrations
                 schema: "public",
                 table: "Product",
                 column: "MerchantId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Product_MerchantId_Code",
-                schema: "public",
-                table: "Product",
-                columns: new[] { "MerchantId", "Code" },
-                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Product_MerchantId_IsDelete",

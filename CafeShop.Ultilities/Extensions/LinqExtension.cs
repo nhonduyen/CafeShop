@@ -5,6 +5,12 @@ using System.Linq.Expressions;
 namespace CafeShop.Ultilities.Extensions {
     public static class LinqExtension {
 
+        public static IQueryable<TSource> WhereSearch<TSource>(this IQueryable<TSource> source,
+            string searchText,
+            Expression<Func<TSource, bool>> predicate) {
+            return source.WhereIf(!string.IsNullOrWhiteSpace(searchText), predicate);
+        }
+
         public static IQueryable<TSource> WhereIf<TSource>(this IQueryable<TSource> source,
             [DoesNotReturnIf(true)] bool when,
             Expression<Func<TSource, bool>> predicateTrue,

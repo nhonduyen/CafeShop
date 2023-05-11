@@ -11,24 +11,26 @@ namespace CafeShop.CommonServices {
 
     public interface IImageService {
 
+        Task<Image?> Get(Guid merchantId, EImage itemType, Guid itemId, CancellationToken cancellationToken = default);
+
         Task<List<Image>> List(Guid merchantId, EImage itemType, Guid itemId, CancellationToken cancellationToken = default);
 
         Task<List<Image>> List(Guid merchantId, EImage itemType, List<Guid> itemIds, CancellationToken cancellationToken = default);
 
-        Task Delete(Guid id, Image? entity, CancellationToken cancellationToken = default);
+        Task Delete(Guid merchantId, EImage itemType, Guid itemId, CancellationToken cancellationToken = default);
 
         Task Save(Guid merchantId, Guid userId, EImage itemType, Guid itemId, ImageDto model, Image? entity = null, CancellationToken cancellationToken = default);
     }
 
     public class ImageDto {
 
-        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public Guid Id { get; set; }
 
         public string Name { get; set; } = string.Empty;
         public string Path { get; set; } = string.Empty;
 
-        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public byte[]? Data { get; set; }
 
         [return: NotNullIfNotNull(nameof(entity))]
@@ -50,6 +52,11 @@ namespace CafeShop.CommonServices {
             this.db = serviceProvider.GetRequiredService<CafeShopContext>();
         }
 
+        public async Task<Image?> Get(Guid merchantId, EImage itemType, Guid itemId, CancellationToken cancellationToken = default) {
+            var images = await this.List(merchantId, itemType, itemId, cancellationToken);
+            return images.FirstOrDefault();
+        }
+
         public async Task<List<Image>> List(Guid merchantId, EImage itemType, Guid itemId, CancellationToken cancellationToken = default) {
             return await this.List(merchantId, itemType, new List<Guid> { itemId }, cancellationToken);
         }
@@ -58,14 +65,17 @@ namespace CafeShop.CommonServices {
             return await this.db.Images.Where(o => o.MerchantId == merchantId && o.ItemType == itemType && itemIds.Contains(o.ItemId)).ToListAsync(cancellationToken);
         }
 
-        public async Task Delete(Guid id, Image? entity, CancellationToken cancellationToken = default) {
-            entity ??= await this.db.Images.FirstOrDefaultAsync(o => o.Id == id, cancellationToken);
-            ManagedException.ThrowIfNull(entity, "No image found.");
+        public async Task Delete(Guid merchantId, EImage itemType, Guid itemId, CancellationToken cancellationToken = default) {
+            var entities = await this.db.Images.Where(o => o.MerchantId == merchantId && o.ItemType == itemType && o.ItemId == itemId).ToListAsync(cancellationToken);
 
-            if (File.Exists(entity.Path)) File.Delete(entity.Path);
+            if (entities.Count == 0) return;
 
-            this.db.Images.Remove(entity);
-            await this.db.SaveChangesAsync(cancellationToken);
+            foreach (var entity in entities) {
+                if (File.Exists(entity.Path))
+                    File.Delete(entity.Path);
+            }
+
+            this.db.Images.RemoveRange(entities);
         }
 
         public async Task Save(Guid merchantId, Guid userId, EImage itemType, Guid itemId, ImageDto model, Image? entity = null, CancellationToken cancellationToken = default) {
@@ -91,7 +101,6 @@ namespace CafeShop.CommonServices {
             entity.Path = await UploadImage(entity, model.Data!, cancellationToken);
 
             await this.db.AddAsync(entity, cancellationToken);
-            await this.db.SaveChangesAsync(cancellationToken);
         }
 
         private async Task Update(Guid userId, ImageDto model, Image? entity, CancellationToken cancellationToken = default) {
@@ -104,7 +113,6 @@ namespace CafeShop.CommonServices {
             entity.ModifiedDate = DateTimeOffset.UtcNow;
 
             this.db.Images.Update(entity);
-            await this.db.SaveChangesAsync(cancellationToken);
         }
 
         private static async Task<string> UploadImage(Image entity, byte[] data, CancellationToken cancellationToken = default) {

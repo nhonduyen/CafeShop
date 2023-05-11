@@ -6,7 +6,6 @@ namespace CafeShop.Database.Configs {
     internal class OrderDetailConfig : MerchantEntityConfig<OrderDetail> {
 
         protected override void Config(EntityTypeBuilder<OrderDetail> builder) {
-            builder.Property(o => o.ProductCode).HasMaxLength(50);
             builder.Property(o => o.ProductName).HasMaxLength(200);
 
             builder.HasIndex(o => new { o.MerchantId, o.OrderId });
