@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { createContext } from "react";
 import { Header } from './Header';
 import { SideMenu } from './SideMenu'
 import { NavMenu } from './NavMenu';
@@ -7,19 +8,26 @@ import { ItemDetails } from './ItemDetails';
 
 import './site.css'
 
+export const CategoriesContext = createContext()
+export const ItemsContext = createContext()
 export class Home extends Component {
   static displayName = Home.name;
+
 
   constructor(props) {
     super(props);
     this.state = {
-      categories: [],
-      selectedCategoryId: null,
-      isShowSideMenu: false,
-      itemList: [],
-      selectedItem: null,
-      isShowItemDetails: false
-    };
+      categories: {
+        categoriesList: [],
+        selectedCategory: {},
+        isShowSideMenu: false
+      },
+      items: {
+        itemList: [],
+        selectedItem: null,
+        isShowItemDetails: false
+      }
+    }
 
     this.generateItems = this.generateItems.bind(this);
     this.generateCategories = this.generateCategories.bind(this);
@@ -49,7 +57,7 @@ export class Home extends Component {
       };
       items.push(item);
     }
-    this.setState({ itemList: items })
+    this.setState({ items: { itemList: items } })
   }
 
   numberWithCommas(x) {
@@ -67,17 +75,20 @@ export class Home extends Component {
       };
       items.push(item);
     }
-    this.setState({ categories: items })
+    this.setState(({ categories }) => ({ categories: {
+      ...categories,
+      categoriesList: items,
+    }}))
   }
   updateIsShowSideMenu(isShow) {
-    this.setState({isShowSideMenu: isShow})
+    this.setState({ isShowSideMenu: isShow })
   }
 
   updateSelectedCategoryId(id) {
     this.setState({ selectedCategoryId: id })
   }
 
-  updateIsShowItemDetails (isShow) {
+  updateIsShowItemDetails(isShow) {
     this.setState({ isShowItemDetails: isShow })
   }
 
@@ -85,9 +96,14 @@ export class Home extends Component {
     return (
       <>
         <Header updateIsShowSideMenu={this.updateIsShowSideMenu} />
-        <NavMenu categories={this.state.categories} selectedCategoryId={this.state.selectedCategoryId} />
-        <SideMenu isShowSideMenu={this.state.isShowSideMenu} categories={this.state.categories} selectedCategoryId={this.state.selectedCategoryId} />
-        <MenuItems items={this.state.itemList} updateIsShowItemDetails={this.updateIsShowItemDetails}/>
+        <CategoriesContext.Provider value={this.state.categories}>
+          <NavMenu selectedCategoryId={this.state.selectedCategoryId} />
+          <SideMenu isShowSideMenu={this.state.isShowSideMenu} categories={this.state.categories} selectedCategoryId={this.state.selectedCategoryId} />
+        </CategoriesContext.Provider>
+        <ItemsContext.Provider value={this.state.items}>
+          <MenuItems />
+          <ItemDetails />
+        </ItemsContext.Provider>
       </>
     );
   }

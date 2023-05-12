@@ -1,38 +1,13 @@
-import React, { Component } from "react";
-import {
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  CardBody,
-} from "reactstrap";
+import React, { useContext } from 'react';
+import { Modal, ModalHeader, ModalBody, ModalFooter, CardBody } from 'reactstrap';
+import { ItemsContext } from './Home'
 
-export class ItemDetails extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isShow: false,
-    };
 
-    this.handleClose = this.handleClose.bind(this);
-    this.toggle = this.toggle.bind(this);
-  }
+export function ItemDetails() {
+    const { isShowItemDetails } = useContext(ItemsContext)
 
-  handleClose() {
-    this.setState({
-      isShow: false,
-    });
-  }
 
-  toggle() {
-    this.setState((prevState) => ({
-      isShow: !prevState.isShow,
-    }));
-  }
-
-  render() {
     return (
-        <></>
-    );
-  }
+        <div>aaa</div>
+    )
 }
