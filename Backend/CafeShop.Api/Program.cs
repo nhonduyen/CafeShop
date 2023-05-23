@@ -89,9 +89,22 @@ app.UseEndpoints(endpoints => {
     endpoints.MapControllers();
 });
 
+EnsureStaticFilePath();
+
 app.UseStaticFiles(new StaticFileOptions {
     FileProvider = new PhysicalFileProvider(Path.Combine(builder.Environment.ContentRootPath, "images")),
     RequestPath = "/images",
 });
 
 app.Run();
+
+static void EnsureStaticFilePath() {
+    var paths = new List<string>() {
+        "images"
+    };
+
+    foreach (var path in paths) {
+        if (!Directory.Exists(path))
+            Directory.CreateDirectory(path);
+    }
+}

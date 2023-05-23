@@ -3,19 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CafeShop.Database", "CafeShop.Database\CafeShop.Database.csproj", "{DBDC0F44-4B00-4926-9ACD-C5DC0BF3FACC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CafeShop.Database", "Backend\CafeShop.Database\CafeShop.Database.csproj", "{DBDC0F44-4B00-4926-9ACD-C5DC0BF3FACC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CafeShop.Common", "CafeShop.Common\CafeShop.Common.csproj", "{0CC6F076-66D2-44CD-B932-B65682FD008D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CafeShop.Common", "Backend\CafeShop.Common\CafeShop.Common.csproj", "{0CC6F076-66D2-44CD-B932-B65682FD008D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CafeShop.Ultilities", "CafeShop.Ultilities\CafeShop.Ultilities.csproj", "{C0F32AC1-1B7E-462F-A1F6-2F5B3F379C17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CafeShop.Ultilities", "Backend\CafeShop.Ultilities\CafeShop.Ultilities.csproj", "{C0F32AC1-1B7E-462F-A1F6-2F5B3F379C17}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CafeShop.Handlers", "CafeShop.Handlers\CafeShop.Handlers.csproj", "{CAAD0D9B-5FB6-4357-93E8-CCD88E43F31B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CafeShop.Handlers", "Backend\CafeShop.Handlers\CafeShop.Handlers.csproj", "{CAAD0D9B-5FB6-4357-93E8-CCD88E43F31B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CafeShop.CommonServices", "CafeShop.CommonServices\CafeShop.CommonServices.csproj", "{5E852E2D-5516-430B-9330-901A3BBEA1DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CafeShop.CommonServices", "Backend\CafeShop.CommonServices\CafeShop.CommonServices.csproj", "{5E852E2D-5516-430B-9330-901A3BBEA1DC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CafeShop.Api", "CafeShop.Api\CafeShop.Api.csproj", "{13BE252A-33E9-40DB-B4FF-6013491FD188}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CafeShop.Api", "Backend\CafeShop.Api\CafeShop.Api.csproj", "{13BE252A-33E9-40DB-B4FF-6013491FD188}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CafeShop.Models", "CafeShop.Models\CafeShop.Models.csproj", "{2616086F-0CC7-4465-B947-0D596F8E9EE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CafeShop.Models", "Backend\CafeShop.Models\CafeShop.Models.csproj", "{2616086F-0CC7-4465-B947-0D596F8E9EE7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{89E5B0D2-0CB5-44B1-B6D3-D357CF45C6C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,6 +56,15 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DBDC0F44-4B00-4926-9ACD-C5DC0BF3FACC} = {89E5B0D2-0CB5-44B1-B6D3-D357CF45C6C5}
+		{0CC6F076-66D2-44CD-B932-B65682FD008D} = {89E5B0D2-0CB5-44B1-B6D3-D357CF45C6C5}
+		{C0F32AC1-1B7E-462F-A1F6-2F5B3F379C17} = {89E5B0D2-0CB5-44B1-B6D3-D357CF45C6C5}
+		{CAAD0D9B-5FB6-4357-93E8-CCD88E43F31B} = {89E5B0D2-0CB5-44B1-B6D3-D357CF45C6C5}
+		{5E852E2D-5516-430B-9330-901A3BBEA1DC} = {89E5B0D2-0CB5-44B1-B6D3-D357CF45C6C5}
+		{13BE252A-33E9-40DB-B4FF-6013491FD188} = {89E5B0D2-0CB5-44B1-B6D3-D357CF45C6C5}
+		{2616086F-0CC7-4465-B947-0D596F8E9EE7} = {89E5B0D2-0CB5-44B1-B6D3-D357CF45C6C5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DD8A2F43-5328-4696-8804-A1769515F9A4}
